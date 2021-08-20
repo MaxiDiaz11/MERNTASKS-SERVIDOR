@@ -10,4 +10,7 @@ router.post('/', auth, [
     check('nombre', 'El nombre es obligatorio').not().isEmpty()
 ], tareasController.crearTarea)
 
+//obtener tareas por proyecto
+router.get('/', auth, tareasController.obtenerTareas)
+
 module.exports = router;
