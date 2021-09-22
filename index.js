@@ -1,6 +1,6 @@
 const express = require('express');
-
 const conectarDB = require('./config/db')
+const cors = require('cors');
 
 //crear el servidor
 const app = express();
@@ -13,6 +13,9 @@ app.use(express.json({ extended: true }))
 
 //PUERTO DE LA APP
 const PORT = process.env.PORT || 4000;
+
+//habilitar CORS
+app.use(cors());
 
 //importar rutas
 app.use('/api/usuarios', require('./routes/usuarios'))
